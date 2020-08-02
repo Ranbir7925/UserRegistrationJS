@@ -1,10 +1,9 @@
 console.log("Welcome to User Registration.\n");
 
-console.log("Name should start with Capital letter and should have minimum 3 characters.\n")
-
 const prompt = require('prompt-sync')();
 const namePattern = new RegExp("^[A-Z][A-Za-z0-9]{2,}$");
 const emailPattern = new RegExp("^[0-9a-zA-Z]+[.]*[0-9a-zA-z]*[@][a-zA-Z]+([.][a-zA-Z]+){1,2}$");
+const phoneNumberPattern = new RegExp("^[0-9]{2}[ ][0-9]{10}$");
 
 function checkValidation(input, namePattern)
 {
@@ -33,15 +32,23 @@ while(true)
 while(true)
 {
     let lastName = prompt("Enter your Last name:  ");
-    let check = checkValidation(lastName, namePattern)
+    let check = checkValidation(lastName, namePattern);
     if(check == false)
         break;
 }
 
 while(true)
 {
-    let email = prompt("Enter your Last name:  ");
-    let check = checkValidation(email, emailPattern)
+    let email = prompt("Enter your email address:  ");
+    let check = checkValidation(email, emailPattern);
+    if(check == false)
+        break;
+}
+
+while(true)
+{
+    let phoneNumber = prompt("Enter your phone number:  ");
+    let check = checkValidation(phoneNumber, phoneNumberPattern);
     if(check == false)
         break;
 }
