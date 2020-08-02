@@ -4,6 +4,7 @@ const prompt = require('prompt-sync')();
 const namePattern = new RegExp("^[A-Z][A-Za-z0-9]{2,}$");
 const emailPattern = new RegExp("^[0-9a-zA-Z]+[.]*[0-9a-zA-z]*[@][a-zA-Z]+([.][a-zA-Z]+){1,2}$");
 const phoneNumberPattern = new RegExp("^[0-9]{2}[ ][0-9]{10}$");
+const passwordPattern = new RegExp("[a-zA-Z0-9@#$%]{8,}$");
 
 function checkValidation(input, namePattern)
 {
@@ -49,6 +50,14 @@ while(true)
 {
     let phoneNumber = prompt("Enter your phone number:  ");
     let check = checkValidation(phoneNumber, phoneNumberPattern);
+    if(check == false)
+        break;
+}
+
+while(true)
+{
+    let password = prompt("Enter your password:  ");
+    let check = checkValidation(password, passwordPattern);
     if(check == false)
         break;
 }
